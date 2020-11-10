@@ -8,7 +8,8 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
-func getGormConnect() *gorm.DB {
+// GetGormConnect データベースへの接続を行う
+func GetGormConnect() *gorm.DB {
 	DBMS := "mysql"
 	USER := "root"
 	PASS := "root"
