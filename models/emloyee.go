@@ -12,7 +12,7 @@ type Model struct{}
 type Employee entity.Employee
 
 // CreateEmployee Employeeのレコード全てを取得
-func (e Employee) CreateEmployee(resistrationEmployee *Employee) []Employee {
+func (m Model) CreateEmployee(resistrationEmployee *Employee) []Employee {
 	db := db.GetGormConnect()
 	db.Create(&resistrationEmployee)
 	defer db.Close()
