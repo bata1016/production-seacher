@@ -1,10 +1,12 @@
 package entity
 
-import "time"
+import (
+	"time"
+)
 
 // Production is a model
 type Production struct {
-	ID             unit
+	ID             uint
 	ProductionCode string
 	Category       string
 	Company        string
