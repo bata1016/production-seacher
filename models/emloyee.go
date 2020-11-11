@@ -1,19 +1,19 @@
-package model
+// package model
 
-import (
-	"github.com/bata1016/production-seacher/db"
-	"github.com/bata1016/production-seacher/models/entity"
-)
+// import (
+// 	"github.com/bata1016/production-seacher/db"
+// 	"github.com/bata1016/production-seacher/models/entity"
+// )
 
 // Model Employeeモデルのこと
-type Model struct{}
+// type Model struct{}
 
 // Employee Employeeの作成
-type Employee entity.Employee
+// type Employee entity.Employee
 
-// CreateEmployee Employeeのレコード全てを取得
-func (m Model) CreateEmployee(resistrationEmployee *Employee) []Employee {
-	db := db.GetGormConnect()
-	db.Create(&resistrationEmployee)
-	defer db.Close()
-}
+// CreateEmployee Employeeを新しく作成
+// func (m Model) CreateEmployee(*Employee) []Employee {
+// 	db := db.GetGormConnect()
+// 	db.Create()
+// 	defer db.Close()
+// }
