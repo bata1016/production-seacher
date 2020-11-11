@@ -10,8 +10,8 @@ func router() *gin.Engine {
 	employeePath := router.Group("/employees")
 	{
 		employeeCtrl := employee.Controller{}
-		employeePath.GET("", employeeCtrl.Index)
-		employeePath.POST("", employeeCtrl.Create)
+		employeePath.GET("", employeeCtrl.IndexEmployee)
+		employeePath.POST("", employeeCtrl.CreateEmployee)
 	}
 	return router
 }
