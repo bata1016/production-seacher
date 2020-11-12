@@ -8,6 +8,10 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
+
+func Init() {
+	GetGormConnect()
+}
 // GetGormConnect データベースへの接続を行う
 func GetGormConnect() *gorm.DB {
 	DBMS := "mysql"
@@ -32,8 +36,12 @@ func GetGormConnect() *gorm.DB {
 	db.SingularTable(true)
 
 	// マイグレーション（テーブルがない時は自動生成）
-	db.AutoMigrate(&entity.Employee{})
+	autoMigration()
 
 	fmt.Println("db connected: ", &db)
 	return db
 }
+
+func autoMigration() [
+	db.automigration(&entity.Employee{})
+]
