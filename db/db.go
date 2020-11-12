@@ -8,10 +8,13 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
-
+// Initはデータベースの起動を行うファンクション
 func Init() {
 	GetGormConnect()
 }
+
+var db gorm.DB
+
 // GetGormConnect データベースへの接続を行う
 func GetGormConnect() *gorm.DB {
 	DBMS := "mysql"
@@ -42,6 +45,6 @@ func GetGormConnect() *gorm.DB {
 	return db
 }
 
-func autoMigration() [
-	db.automigration(&entity.Employee{})
-]
+func autoMigration() {
+	db.AutoMigrate(&entity.Employee{})
+}
