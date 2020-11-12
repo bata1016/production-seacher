@@ -5,7 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func router() *gin.Engine {
+func Router() *gin.Engine {
 	router := gin.Default()
 	employeePath := router.Group("/employees")
 	{
