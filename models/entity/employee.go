@@ -1,12 +1,15 @@
 package entity
 
-import "time"
+import (
+	"github.com/jinzhu/gorm"
+)
 
 // Employee is a model
 type Employee struct {
-	ID           uint
+	gorm.Model
+	// ID           uint
 	Name         string
 	EmployeeCode string
 	Email        string
-	CreatedAt    time.Time
+	// CreatedAt    time.Time
 }

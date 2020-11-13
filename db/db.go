@@ -13,21 +13,22 @@ func Init() {
 	GetGormConnect()
 }
 
-var db gorm.DB
+// var db gorm.DB
 
 // GetGormConnect データベースへの接続を行う
 func GetGormConnect() *gorm.DB {
 	DBMS := "mysql"
 	USER := "root"
-	PASS := "root"
+	// PASS := "root"
 	PROTOCOL := "tcp(localhost:3306)"
-	DBNAME := "Prodduction-Seacher"
-	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME
+	DBNAME := "production_seacher"
+	CONNECT := USER + ":" + "@" + PROTOCOL + "/" + DBNAME
 	db, err := gorm.Open(DBMS, CONNECT)
 
 	if err != nil {
 		panic(err)
 	}
+	defer db.Close()
 	// DBエンジンを「InnoDB」に設定
 	// DBエンジンはDBがCRUDを行うための部品
 	db.Set("gorm:table_options", "ENGINE=InnoDB")
@@ -39,12 +40,12 @@ func GetGormConnect() *gorm.DB {
 	db.SingularTable(true)
 
 	// マイグレーション（テーブルがない時は自動生成）
-	autoMigration()
+	db.AutoMigrate(&entity.Employee{})
 
-	fmt.Println("db connected: ", &db)
+	fmt.Println("db connected: ", db)
 	return db
 }
 
-func autoMigration() {
-	db.AutoMigrate(&entity.Employee{})
-}
+// func autoMigration() {
+// 	db.AutoMigrate(&entity.Employee{})
+// }

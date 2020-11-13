@@ -2,6 +2,7 @@ package employee
 
 import (
 	"fmt"
+	"net/http"
 
 	model "github.com/bata1016/production-seacher/models"
 	"github.com/gin-gonic/gin"
@@ -13,15 +14,17 @@ type Controller struct {
 }
 
 func (c Controller) IndexEmployee(ctx *gin.Context) {
-	var employee model.EmployeeModel
-	pointer, err := employee.GetAll()
+	// var employee model.EmployeeModel
+	// pointer, err := employee.GetAll()
 
-	if err != nil {
-		ctx.AbortWithStatus(404)
-		fmt.Println(err)
-	} else {
-		ctx.JSON(200, pointer)
-	}
+	// if err != nil {
+	// 	ctx.AbortWithStatus(404)
+	// 	fmt.Println(err)
+	// } else {
+	// 	ctx.JSON(200, pointer)
+	// }
+
+	ctx.HTML(http.StatusOK, "index.html", gin.H{})
 }
 
 func (c Controller) CreateEmployee(ctx *gin.Context) {
