@@ -23,7 +23,6 @@ func (c Controller) IndexEmployee(ctx *gin.Context) {
 	// } else {
 	// 	ctx.JSON(200, pointer)
 	// }
-
 	ctx.HTML(http.StatusOK, "index.html", gin.H{})
 }
 

@@ -1,17 +1,15 @@
-package server
+package Employee
 
 import (
 	employee "github.com/bata1016/production-seacher/controllers"
 	"github.com/gin-gonic/gin"
 )
 
-func Router() *gin.Engine {
-	router := gin.Default()
-	employeePath := router.Group("/employees")
+func EmployeeRouter(route *gin.Engine) {
+	route.LoadHTMLGlob("templates/employee/*.html")
 	{
 		employeeCtrl := employee.Controller{}
-		employeePath.GET("", employeeCtrl.IndexEmployee)
-		employeePath.POST("", employeeCtrl.CreateEmployee)
+		route.GET("", employeeCtrl.IndexEmployee)
+		route.POST("", employeeCtrl.CreateEmployee)
 	}
-	return router
 }

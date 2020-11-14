@@ -2,10 +2,13 @@ package main
 
 import (
 	"github.com/bata1016/production-seacher/db"
-	"github.com/bata1016/production-seacher/server"
+	employee "github.com/bata1016/production-seacher/server"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	db.Init()
-	server.Router()
+	router := gin.Default()
+	employee.EmployeeRouter(router)
+	router.Run()
 }
