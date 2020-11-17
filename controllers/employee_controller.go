@@ -2,28 +2,24 @@ package employee
 
 import (
 	"fmt"
+	"net/http"
 
 	model "github.com/bata1016/production-seacher/models"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 )
 
+// Controller EmployeeControllerを指す
 type Controller struct {
 	Db *gorm.DB
 }
 
+// IndexEmployeeはEmployeeのindexアクション
 func (c Controller) IndexEmployee(ctx *gin.Context) {
-	var employee model.EmployeeModel
-	pointer, err := employee.GetAll()
-
-	if err != nil {
-		ctx.AbortWithStatus(404)
-		fmt.Println(err)
-	} else {
-		ctx.JSON(200, pointer)
-	}
+	ctx.HTML(http.StatusOK, "index.html", gin.H{})
 }
 
+// CreateEmployeeはEmployeeのcreateアクション
 func (c Controller) CreateEmployee(ctx *gin.Context) {
 	var model model.EmployeeModel
 	pointer, err := model.CreateModel(ctx)
@@ -33,5 +29,6 @@ func (c Controller) CreateEmployee(ctx *gin.Context) {
 		fmt.Println(err)
 	} else {
 		ctx.JSON(201, pointer)
+		ctx.Redirect(302, "/production/index")
 	}
 }
