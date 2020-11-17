@@ -9,6 +9,7 @@ import (
 func main() {
 	db.Init()
 	router := gin.Default()
+	router.Static("/assets/", "./assets")
 	employee.EmployeeRouter(router)
 	router.Run()
 }

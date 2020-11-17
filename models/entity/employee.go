@@ -11,5 +11,6 @@ type Employee struct {
 	Name         string
 	EmployeeCode string
 	Email        string
+	Password     string
 	// CreatedAt    time.Time
 }

@@ -14,15 +14,6 @@ type Controller struct {
 }
 
 func (c Controller) IndexEmployee(ctx *gin.Context) {
-	// var employee model.EmployeeModel
-	// pointer, err := employee.GetAll()
-
-	// if err != nil {
-	// 	ctx.AbortWithStatus(404)
-	// 	fmt.Println(err)
-	// } else {
-	// 	ctx.JSON(200, pointer)
-	// }
 	ctx.HTML(http.StatusOK, "index.html", gin.H{})
 }
 
