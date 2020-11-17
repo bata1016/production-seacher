@@ -1,4 +1,4 @@
-package Employee
+package employee
 
 import (
 	employee "github.com/bata1016/production-seacher/controllers"

@@ -9,14 +9,17 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
+// Controller EmployeeControllerを指す
 type Controller struct {
 	Db *gorm.DB
 }
 
+// IndexEmployeeはEmployeeのindexアクション
 func (c Controller) IndexEmployee(ctx *gin.Context) {
 	ctx.HTML(http.StatusOK, "index.html", gin.H{})
 }
 
+// CreateEmployeeはEmployeeのcreateアクション
 func (c Controller) CreateEmployee(ctx *gin.Context) {
 	var model model.EmployeeModel
 	pointer, err := model.CreateModel(ctx)
@@ -26,5 +29,6 @@ func (c Controller) CreateEmployee(ctx *gin.Context) {
 		fmt.Println(err)
 	} else {
 		ctx.JSON(201, pointer)
+		ctx.Redirect(302, "/production/index")
 	}
 }
