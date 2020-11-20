@@ -22,6 +22,10 @@ func (c Controller) IndexEmployee(ctx *gin.Context) {
 // CreateEmployeeはEmployeeのcreateアクション
 func (c Controller) CreateEmployee(ctx *gin.Context) {
 	var model model.EmployeeModel
+	name := ctx.PostForm("name")
+	employeeCode := ctx.PostForm("employeeCode")
+	email := ctx.PostForm("email")
+	password := ctx.PostForm("password")
 	pointer, err := model.CreateModel(ctx)
 
 	if err != nil {
