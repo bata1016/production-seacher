@@ -1,14 +1,14 @@
-package employee
+package server
 
 import (
-	employee "github.com/bata1016/production-seacher/controllers"
+	"github.com/bata1016/production-seacher/controllers"
 	"github.com/gin-gonic/gin"
 )
 
 func EmployeeRouter(route *gin.Engine) {
 	route.LoadHTMLGlob("templates/employee/*.html")
 	{
-		employeeCtrl := employee.Controller{}
+		employeeCtrl := controllers.EmployeeController{}
 		route.GET("", employeeCtrl.IndexEmployee)
 		route.POST("", employeeCtrl.CreateEmployee)
 	}

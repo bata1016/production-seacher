@@ -41,6 +41,7 @@ func GetGormConnect() *gorm.DB {
 
 	// マイグレーション（テーブルがない時は自動生成）
 	db.AutoMigrate(&entity.Employee{})
+	db.AutoMigrate(&entity.Production{})
 
 	fmt.Println("db connected: ", db)
 	return db
