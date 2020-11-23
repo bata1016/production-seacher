@@ -5,21 +5,20 @@ import (
 
 	model "github.com/bata1016/production-seacher/models"
 	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
 )
 
 // Controller EmployeeControllerを指す
-type EmployeeController struct {
-	Db *gorm.DB
-}
+// type EmployeeController struct {
+// 	Db *gorm.DB
+// }
 
 // IndexEmployeeはEmployeeのindexアクション
-func (ec EmployeeController) IndexEmployee(ctx *gin.Context) {
+func IndexEmployee(ctx *gin.Context) {
 	ctx.HTML(http.StatusOK, "index.html", gin.H{})
 }
 
 // CreateEmployeeはEmployeeのcreateアクション
-func (ec EmployeeController) CreateEmployee(ctx *gin.Context) {
+func CreateEmployee(ctx *gin.Context) {
 	var model model.EmployeeModel
 	name := ctx.PostForm("name")
 	employeeCode := ctx.PostForm("employeeCode")
