@@ -14,7 +14,7 @@ import (
 
 // IndexEmployeeはEmployeeのindexアクション
 func IndexEmployee(ctx *gin.Context) {
-	ctx.HTML(http.StatusOK, "index.html", gin.H{})
+	ctx.HTML(http.StatusOK, "signup.html", gin.H{})
 }
 
 // CreateEmployeeはEmployeeのcreateアクション
@@ -24,9 +24,8 @@ func CreateEmployee(ctx *gin.Context) {
 	employeeCode := ctx.PostForm("employeeCode")
 	email := ctx.PostForm("email")
 	password := ctx.PostForm("password")
-
 	model.CreateModel(name, employeeCode, email, password)
-	ctx.Redirect(302, "/production/index")
+	// ctx.Redirect(302, "/production/toppage")
 	// if err != nil {
 	// 	ctx.AbortWithStatus(400)
 	// 	fmt.Println(err)

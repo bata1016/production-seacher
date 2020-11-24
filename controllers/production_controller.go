@@ -11,5 +11,5 @@ import (
 // }
 
 func ProductionIndex(ctx *gin.Context) {
-	ctx.HTML(http.StatusOK, "index.html", gin.H{})
+	ctx.HTML(http.StatusOK, "toppage.html", gin.H{})
 }

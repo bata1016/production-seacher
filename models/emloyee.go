@@ -29,6 +29,10 @@ func (m EmployeeModel) GetAll() ([]Employee, error) {
 func (m EmployeeModel) CreateModel(name string, employeeCode string, email string, password string) {
 	db := db.GetGormConnect()
 
-	db.Create(&Employee{Name: name, EmployeeCode: employeeCode, Email: email, Password: password})
-	defer db.Close()
+	err := db.Create(&Employee{Name: name, EmployeeCode: employeeCode, Email: email, Password: password})
+	if err != nil {
+		panic(err)
+	} else {
+		defer db.Close()
+	}
 }
