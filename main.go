@@ -12,11 +12,11 @@ func main() {
 	router.LoadHTMLGlob("templates/**/*.html")
 	router.Static("/assets/", "./assets")
 	router.GET("/", controllers.IndexEmployee)
-	router.POST("/", controllers.CreateEmployee)
+	router.POST("/newemployee", controllers.CreateEmployee)
 
 	production := router.Group("/production")
 	{
-		production.POST("/toppage", controllers.ProductionIndex)
+		production.GET("/toppage", controllers.ProductionIndex)
 	}
 	router.Run()
 }

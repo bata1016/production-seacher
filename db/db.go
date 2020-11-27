@@ -28,7 +28,7 @@ func GetGormConnect() *gorm.DB {
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
+	// defer db.Close()
 	// DBエンジンを「InnoDB」に設定
 	// DBエンジンはDBがCRUDを行うための部品
 	db.Set("gorm:table_options", "ENGINE=InnoDB")

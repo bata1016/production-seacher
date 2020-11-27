@@ -25,6 +25,7 @@ func CreateEmployee(ctx *gin.Context) {
 	email := ctx.PostForm("email")
 	password := ctx.PostForm("password")
 	model.CreateModel(name, employeeCode, email, password)
+	ctx.Redirect(302, "/production/toppage")
 	// ctx.Redirect(302, "/production/toppage")
 	// if err != nil {
 	// 	ctx.AbortWithStatus(400)
