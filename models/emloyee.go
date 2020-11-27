@@ -1,14 +1,15 @@
 package model
 
 import (
+	"fmt"
+
 	"github.com/bata1016/production-seacher/db"
 	"github.com/bata1016/production-seacher/models/entity"
-	"github.com/gin-gonic/gin"
 )
 
 // ここではモデルとデータベースのやりとりを記述
 
-// Model Employeeモデルのこと
+// EmployeeModel Model Employeeモデルのこと
 type EmployeeModel struct{}
 
 // Employee Employeeの作成
@@ -27,17 +28,16 @@ func (m EmployeeModel) GetAll() ([]Employee, error) {
 }
 
 // CreateModel Employeeを新しく作成
-func (m EmployeeModel) CreateModel(ctx *gin.Context) (Employee, error) {
+func (m EmployeeModel) CreateModel(name string, employeeCode string, email string, password string) {
 	db := db.GetGormConnect()
-	var employee Employee
-
-	if err := ctx.BindJSON(&employee); err != nil {
-		return employee, nil
-	}
-
-	if err := db.Create(&employee).Error; err != nil {
-		return employee, err
-	}
-
-	return employee, nil
+	fmt.Printf("ok")
+	db.Create(&Employee{Name: name, EmployeeCode: employeeCode, Email: email, Password: password})
+	defer db.Close()
+	// defer db.Close()
+	// err := db.Create(&Employee{Name: name, EmployeeCode: employeeCode, Email: email, Password: password}).Error
+	// if err != nil {
+	// 	panic(err)
+	// } else {
+	// 	defer db.Close()
+	// }
 }

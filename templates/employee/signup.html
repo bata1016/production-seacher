@@ -12,15 +12,15 @@
 <body>
   <fieldset>
     <h1>Login</h1>
-    <form method="post" action="production/index">
+    <form method="post" action="/newemployee">
       <div class="iconUser"></div>
-      <input type="text" placeholder="Username" required>
+      <input type="text" name="name" placeholder="Username" required>
       <div class="iconPassword"></div>
-      <input type="password" placeholder="Password" required>
+      <input type="password" name="password" placeholder="Password" required>
       <div class="iconEmployeeCode"></div>
-      <input type="text" placeholder="EmployeeCode" required>
+      <input type="text" name="employeeCode" placeholder="EmployeeCode" required>
       <div class="iconEmail"></div>
-      <input type="email" placeholder="Email" required>
+      <input type="email" name="email" placeholder="Email" required>
       <input type="submit" value="Enter">
     </form>
   </fieldset>

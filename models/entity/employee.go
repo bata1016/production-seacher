@@ -7,10 +7,8 @@ import (
 // Employee is a model
 type Employee struct {
 	gorm.Model
-	// ID           uint
 	Name         string
 	EmployeeCode string
 	Email        string
 	Password     string
-	// CreatedAt    time.Time
 }

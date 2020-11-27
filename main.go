@@ -1,16 +1,22 @@
 package main
 
 import (
+	"github.com/bata1016/production-seacher/controllers"
 	"github.com/bata1016/production-seacher/db"
-	employee "github.com/bata1016/production-seacher/server"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	db.Init()
 	router := gin.Default()
+	router.LoadHTMLGlob("templates/**/*.html")
 	router.Static("/assets/", "./assets")
-	employee.EmployeeRouter(router)
+	router.GET("/", controllers.IndexEmployee)
+	router.POST("/newemployee", controllers.CreateEmployee)
 
+	production := router.Group("/production")
+	{
+		production.GET("/toppage", controllers.ProductionIndex)
+	}
 	router.Run()
 }
