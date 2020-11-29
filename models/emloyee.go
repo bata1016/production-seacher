@@ -1,8 +1,6 @@
 package model
 
 import (
-	"fmt"
-
 	"github.com/bata1016/production-seacher/db"
 	"github.com/bata1016/production-seacher/models/entity"
 )
@@ -30,7 +28,6 @@ func (m EmployeeModel) GetAll() ([]Employee, error) {
 // CreateModel Employeeを新しく作成
 func (m EmployeeModel) CreateModel(name string, employeeCode string, email string, password string) {
 	db := db.GetGormConnect()
-	fmt.Printf("ok")
 	db.Create(&Employee{Name: name, EmployeeCode: employeeCode, Email: email, Password: password})
 	defer db.Close()
 	// defer db.Close()
