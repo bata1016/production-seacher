@@ -22,7 +22,8 @@ func GetGormConnect() *gorm.DB {
 	// PASS := "root"
 	PROTOCOL := "tcp(localhost:3306)"
 	DBNAME := "production_seacher"
-	CONNECT := USER + ":" + "@" + PROTOCOL + "/" + DBNAME
+	PARSETIME := "?parseTime=true"
+	CONNECT := USER + ":" + "@" + PROTOCOL + "/" + DBNAME + PARSETIME
 	db, err := gorm.Open(DBMS, CONNECT)
 
 	if err != nil {

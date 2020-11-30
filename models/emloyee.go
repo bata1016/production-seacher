@@ -1,6 +1,8 @@
 package model
 
 import (
+	"crypto"
+
 	"github.com/bata1016/production-seacher/db"
 	"github.com/bata1016/production-seacher/models/entity"
 )
@@ -28,7 +30,8 @@ func (m EmployeeModel) GetAll() ([]Employee, error) {
 // CreateModel Employeeを新しく作成
 func (m EmployeeModel) CreateModel(name string, employeeCode string, email string, password string) {
 	db := db.GetGormConnect()
-	db.Create(&Employee{Name: name, EmployeeCode: employeeCode, Email: email, Password: password})
+	passwordEncrypt, _ := crypto.PasswordEncrypt(password)
+	db.Create(&Employee{Name: name, EmployeeCode: employeeCode, Email: email, Password: passwordEncrypt})
 	defer db.Close()
 	// defer db.Close()
 	// err := db.Create(&Employee{Name: name, EmployeeCode: employeeCode, Email: email, Password: password}).Error
@@ -37,4 +40,13 @@ func (m EmployeeModel) CreateModel(name string, employeeCode string, email strin
 	// } else {
 	// 	defer db.Close()
 	// }
+}
+
+func (m EmployeeModel) GetLoginEmployee(employeeCode string) Employee {
+	db := db.GetGormConnect()
+	var employee Employee
+	db.First(&employee, "employee_code = ?", employeeCode)
+	// db.First(&employee, "password=?", password)
+	db.Close()
+	return employee
 }

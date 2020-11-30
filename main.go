@@ -14,6 +14,7 @@ func main() {
 	router.GET("/", controllers.IndexEmployee)
 	router.GET("/login", controllers.LoginEmployee)
 	router.POST("/newemployee", controllers.CreateEmployee)
+	router.POST("/login/sessionCheckEmployee", controllers.SessionCheckEmployee)
 
 	production := router.Group("/production")
 	{

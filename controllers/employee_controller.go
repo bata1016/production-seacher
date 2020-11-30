@@ -1,10 +1,12 @@
 package controllers
 
 import (
+	"log"
 	"net/http"
 
 	model "github.com/bata1016/production-seacher/models"
 	"github.com/gin-gonic/gin"
+	"golang.org/x/crypto/bcrypt"
 )
 
 // Controller EmployeeControllerを指す
@@ -34,6 +36,19 @@ func CreateEmployee(ctx *gin.Context) {
 }
 
 func SessionCheckEmployee(ctx *gin.Context) {
+	var model model.EmployeeModel
+	employeeCode := ctx.PostForm("employeeCode")
+	// password := ctx.PostForm("password")
+	dbPassWord := model.GetLoginEmployee(employeeCode).Password
+	formPassword := ctx.PostForm("password")
+	if err := bcrypt.CompareHashAndPassword([]byte(dbPassWord), []byte(formPassword)); err != nil {
+		log.Println("ログインできませんでした")
+		log.Println(err)
+		ctx.HTML(http.StatusBadRequest, "login.html", gin.H{})
+	} else {
+		log.Println("ログインできました")
+		ctx.Redirect(302, "/production/toppage")
+	}
 	// var model model.EmployeeModel
 	// employeeCode := ctx.PostForm("employeeCode")
 	// password := ctx.PostForm("password")
