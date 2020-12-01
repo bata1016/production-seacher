@@ -1,10 +1,11 @@
 package model
 
 import (
-	"crypto"
+	"fmt"
 
 	"github.com/bata1016/production-seacher/db"
 	"github.com/bata1016/production-seacher/models/entity"
+	"golang.org/x/crypto/bcrypt"
 )
 
 // ここではモデルとデータベースのやりとりを記述
@@ -30,8 +31,13 @@ func (m EmployeeModel) GetAll() ([]Employee, error) {
 // CreateModel Employeeを新しく作成
 func (m EmployeeModel) CreateModel(name string, employeeCode string, email string, password string) {
 	db := db.GetGormConnect()
-	passwordEncrypt, _ := crypto.PasswordEncrypt(password)
-	db.Create(&Employee{Name: name, EmployeeCode: employeeCode, Email: email, Password: passwordEncrypt})
+	passwordEncrypt, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost); if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(passwordEncrypt)
+		password = string(passwordEncrypt)
+	}
+	db.Create(&Employee{Name: name, EmployeeCode: employeeCode, Email: email, Password: password})
 	defer db.Close()
 	// defer db.Close()
 	// err := db.Create(&Employee{Name: name, EmployeeCode: employeeCode, Email: email, Password: password}).Error
@@ -46,7 +52,6 @@ func (m EmployeeModel) GetLoginEmployee(employeeCode string) Employee {
 	db := db.GetGormConnect()
 	var employee Employee
 	db.First(&employee, "employee_code = ?", employeeCode)
-	// db.First(&employee, "password=?", password)
 	db.Close()
 	return employee
 }
