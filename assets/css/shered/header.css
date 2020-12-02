@@ -1,0 +1,21 @@
+h1 {
+  color: white;
+}
+a {
+  color: white;
+}
+.side-bar {
+  height: 30vh;
+  width: 100%;
+  justify-content: space-around;
+  background-color: black;
+  display: flex;
+}
+
+.app-name {
+  width: 30%;
+}
+
+.head-contents {
+  width: 70%;
+}

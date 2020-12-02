@@ -31,7 +31,8 @@ func (m EmployeeModel) GetAll() ([]Employee, error) {
 // CreateModel Employeeを新しく作成
 func (m EmployeeModel) CreateModel(name string, employeeCode string, email string, password string) {
 	db := db.GetGormConnect()
-	passwordEncrypt, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost); if err != nil {
+	passwordEncrypt, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+	if err != nil {
 		fmt.Println(err)
 	} else {
 		fmt.Println(passwordEncrypt)
