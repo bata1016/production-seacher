@@ -3,47 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/assets/css/production/toppage.scss">
+  <link rel="stylesheet" href="/assets/css/reset.css">
+  <link rel="stylesheet" href="/assets/css/production/toppage.css">
   <link rel="stylesheet" href="/assets/css/shered/header.css">
   <link rel="stylesheet" href="/assets/css/shered/footer.css">
-  <link rel="stylesheet" href="/assets/css/reset.css">
   <title>トップページ</title>
 </head>
 <body>
   <div class="wrapper">
     {{template "header"}}
     <div class="main">
-      <form>
-        <ul class="select">
-          <li>
-            <input class="select_close" type="radio" name="awesomeness" id="awesomeness-close" value=""/>
-            <span class="select_label select_label-placeholder">Awesomeness Level</span>
-          </li>
-          <li class="select_items">
-            <input class="select_expand" type="radio" name="awesomeness" id="awesomeness-opener"/>
-            <label class="select_closeLabel" for="awesomeness-close"></label>   
-            <ul class="select_options">
-              <li class="select_option">
-                <input class="select_input" type="radio" name="awesomeness" id="awesomeness-ridiculous"/>
-                <label class="select_label" for="awesomeness-ridiculous">ridiculous</label>
-              </li>
-              <li class="select_option">
-                <input class="select_input" type="radio" name="awesomeness" id="awesomeness-reasonable"/>
-                <label class="select_label" for="awesomeness-reasonable">reasonable</label>
-              </li>  
-              <li class="select_option">
-                <input class="select_input" type="radio" name="awesomeness" id="awesomeness-lacking"/>
-                <label class="select_label" for="awesomeness-lacking">lacking</label>
-              </li>
-              <li class="select_option">
-                <input class="select_input" type="radio" name="awesomeness" id="awesomeness-awesomeless"/>
-                <label class="select_label" for="awesomeness-awesomeless">awesomeless</label>
-              </li>
-            </ul>      
-            <label class="select_expandLabel" for="awesomeness-opener"></label>
-          </li>
-        </ul>  
-      </form>
+      <div class="select-boxies">
+        <label>
+          <select name="category">
+            <option>天板</option>
+            <option>扉</option>
+            <option>水栓</option>
+            <option>加熱機器</option>
+            <option>レンジフード</option>
+          </select>
+        </label>
+
+        <label>
+          <select name="companies">
+            <option>アイカ工業</option>
+            <option>イビケン</option>
+            <option>パロマ</option>
+            <option>リンナイ</option>
+            <option>日立</option>
+            <option>三菱</option>
+          </select>
+        </label>
+      </div>
     </div>
     {{template "footer"}}
   </div>
