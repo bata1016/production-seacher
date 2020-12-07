@@ -4,39 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/assets/css/reset.css">
-  <link rel="stylesheet" href="/assets/css/production/toppage.css">
-  <link rel="stylesheet" href="/assets/css/shered/header.css">
-  <link rel="stylesheet" href="/assets/css/shered/footer.css">
+  <link rel="stylesheet" href="/assets/css/production/toppage.css?v=3">
+  <link rel="stylesheet" href="/assets/css/shered/header.css?v=2">
+  <link rel="stylesheet" href="/assets/css/shered/footer.css?v=2">
+  <!-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
   <title>トップページ</title>
 </head>
 <body>
   <div class="wrapper">
     {{template "header"}}
     <div class="main">
-      <div class="select-boxies">
-        <label>
-          <select name="category">
-            <option>天板</option>
-            <option>扉</option>
-            <option>水栓</option>
-            <option>加熱機器</option>
-            <option>レンジフード</option>
-          </select>
-        </label>
+      <form action="#" class="select-boxies">
+        <div class="select-contents">
+          <label>
+            <select name="categories">
+              <option>天板</option>
+              <option>扉</option>
+              <option>水栓</option>
+              <option>加熱機器</option>
+              <option>レンジフード</option>
+            </select>
+          </label>
+        </div>
 
-        <label>
-          <select name="companies">
-            <option>アイカ工業</option>
-            <option>イビケン</option>
-            <option>パロマ</option>
-            <option>リンナイ</option>
-            <option>日立</option>
-            <option>三菱</option>
-          </select>
-        </label>
+        <div class="select-contents">
+          <label>
+            <select name="companies">
+              <option>アイカ工業</option>
+              <option>イビケン</option>
+              <option>パロマ</option>
+              <option>リンナイ</option>
+              <option>日立</option>
+              <option>三菱</option>
+            </select>
+          </label>
+        </div>
+        <input type="submit" value="送信" class="submit-btn">
+      </form>
+
+      <form action="#" class="production-input">
+        <input type="text" placeholder="品番を入力してください">
+        <input type="submit" >
+      </form>
+
+      <div class="results">
+        検索結果一覧
       </div>
     </div>
-    {{template "footer"}}
   </div>
 </body>
 </html>

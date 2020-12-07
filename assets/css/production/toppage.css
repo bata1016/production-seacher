@@ -1,3 +1,22 @@
+.main {
+  background-color: yellow;
+}
+
+.select-boxies {
+  display: flex;
+  padding: 20px 0;
+}
+
+.select-contents {
+  padding: 10px;
+}
+
+.submit-btn {
+  border-bottom: solid 3px gray;
+  border-radius: 3px;
+  box-shadow: 0px 3px 5px lightgray;
+}
+
 label{
   box-shadow:0 3px 5px rgba(0,0,0,.2);
   padding:15px;
@@ -21,7 +40,6 @@ select{
   border-radius:0;
   width:275px;
   z-index:2;
-  background:transparent;
 }
 
 label:after{
@@ -49,4 +67,46 @@ option:hover{
   background-color:white;
   border-left:3px solid #f3a1a1;
 
+}
+
+
+.production-input{
+  position: relative;
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+.production-input input[type="text"]{
+  border: none;
+  height: 1.8em;
+}
+.production-input input[type="text"]:focus {
+  outline: 0;
+}
+.production-input{
+  border: 2px solid #3879D9;
+  padding: 3px 5px;
+  border-radius: 20px;
+  height: 2.2em;
+  width: 265px;
+  overflow: hidden;
+}
+.production-input input[type="submit"]{
+  cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  background: #3879D9;
+  color: #fff;
+  position: absolute;
+  width: 3.5em;
+  height: 3.0em;
+  right:0px;
+  top: -5px;
+  outline : none;
+}
+.search_container ::-webkit-input-placeholder {
+  color: #3879D9;
+}
+
+.results {
+  height: 70vh;
 }

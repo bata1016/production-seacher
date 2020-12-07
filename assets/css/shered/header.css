@@ -14,8 +14,13 @@ a {
 
 .app-name {
   width: 30%;
+  font-size: 30px;
 }
 
 .head-contents {
   width: 70%;
+}
+
+.logout {
+  font-size: 30px;
 }
