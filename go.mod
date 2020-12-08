@@ -16,7 +16,7 @@ require (
 	github.com/sirupsen/logrus v1.7.0 // indirect
 	github.com/ugorji/go v1.1.13 // indirect
 	github.com/zenazn/goji v1.0.1 // indirect
-	golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897 // indirect
+	golang.org/x/crypto v0.0.0-20201124201722-c8d3bf9c5392
 	golang.org/x/sys v0.0.0-20201109165425-215b40eba54c // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
 	gopkg.in/yaml.v2 v2.3.0 // indirect
