@@ -1,0 +1,149 @@
+.main {
+  background-color: yellow;
+}
+
+.select-boxies {
+  display: flex;
+  padding: 20px 0;
+}
+
+.select-contents {
+  padding: 10px;
+}
+
+.submit-btn {
+  border-bottom: solid 3px gray;
+  border-radius: 3px;
+  box-shadow: 0px 3px 5px lightgray;
+}
+
+label{
+  box-shadow:0 3px 5px rgba(0,0,0,.2);
+  padding:15px;
+  background:white;
+  width:260px;
+  display:inline-block;
+  position:relative;
+  margin-left:50px;
+}
+
+select{
+  border:none;
+  outline:none;
+  display: inline-block;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  cursor:pointer;
+  font-size:16px;
+  color:#909090;
+  border-radius:0;
+  width:275px;
+  z-index:2;
+}
+
+label:after{
+  content:"\25bc";
+  font-size:16px;
+  color:white;
+  background:#f3a1a1;
+  width:42px;
+  text-align:center;
+  line-height:3.2em;
+  top:0;
+  right:0;
+  bottom:0;
+  position:absolute;
+  pointer-events:none;
+}
+
+option{
+  border-bottom:1px solid #eaeaea;
+  border-left:3px solid white;
+  appearance:none;
+}
+
+option:hover{
+  background-color:white;
+  border-left:3px solid #f3a1a1;
+
+}
+
+/* === 検索全体のBOX (サンプル用) ============================ */
+.sample5Area{
+  position       : relative; 
+  width          : 250px;              /* BOXの幅               */
+  height         : 40px;               /* BOXの高さ             */
+  letter-spacing : 0.1em;              /* 文字間隔              */
+  font-weight    : bold;               /* 太字                  */
+  line-height    : 0;                  /* 標準の行高さ          */
+}
+
+ /* === テキスト入力欄のSTYLE設定 ============================= */
+.sample5Text {
+  position       : absolute;
+  display        : block;              /* ブロック化            */
+  box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+  height         : 40px;               /* BOXの高さ             */
+  width          : 100%;               /* テキスト入力の幅      */
+  margin         : 0;                  /* 外余白                */
+  padding        : 0 45px 0 8px;       /* 内余白                */
+  border         : 2px solid #666;     /* 枠線　幅,実践,色      */
+  border-radius  : 6px;                /* 角丸                  */
+  color          : #333;               /* 文字色                */
+  font-size      : 18px;               /* フォントサイズ        */
+  outline        : 0;                  /* 入力の薄い枠を非表示  */
+}
+
+ /* === 検索ボタン欄のSTYLE設定 =============================== */
+.sample5Button {
+  position       : absolute;
+  box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+  height         : 28px;               /* 入力の高さ            */
+  margin         : 0;                  /* 外余白                */
+  padding        : 6px 10px;           /* 内余白                */
+  top            : 6px;                /* ボタン表示位置(上)    */
+  right          : 6px;                /* ボタン表示位置(右)    */
+  border         : none;               /* 枠線　幅,実践,色      */
+  border-radius  : 6px;                /* 右上下の角丸          */
+  background     : #666;               /* ボタンの色            */
+  color          : #fff;               /* 文字色                */
+  cursor         : pointer;            /* カーソル設定          */
+  transition     : .5s;
+}
+
+
+ /* === テキスト入力欄にフォーカスか来たとき ================== */
+.sample5Text:focus {
+  background     : #cfe7ff;            /* フォーカス時の背景色  */
+}
+
+
+ /* === 検索ボタン欄にフォーカスか来たとき ==================== */
+.sample5Button:hover {
+  background     : #333;               /* フォーカス時の背景色  */
+  transform      : rotate(360deg);     /* 360度回転             */
+  background-color : #007fff;          /* フォーカス時の背景色  */
+}
+
+ /* === 検索アイコンのSTYLE設定 =============================== */
+.sample5Img {
+  display        : inline-block;       /* インラインブロック化  */
+  width          : auto;               /* 幅は高さに合わせる    */
+  height         : 16px;               /* 画像の高さ            */
+  margin         : 0;                  /* 余白                  */
+  vertical-align : middle;             /* 横の文字位置          */
+}
+
+ /* === IEの入力エリア右側×消し ============================== */
+.sample5Text::-ms-clear {
+  display        : none;               /* ×を消す              */
+}
+
+.hidden-btn {
+  display: none;
+}
+
+.results {
+  height: 70vh;
+}
