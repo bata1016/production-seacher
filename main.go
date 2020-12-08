@@ -19,6 +19,7 @@ func main() {
 	production := router.Group("/production")
 	{
 		production.GET("/toppage", controllers.ProductionIndex)
+		production.GET("/addcost", controllers.ProductionNew)
 	}
 	router.Run()
 }

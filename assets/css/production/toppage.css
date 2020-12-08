@@ -69,42 +69,79 @@ option:hover{
 
 }
 
+/* === 検索全体のBOX (サンプル用) ============================ */
+.sample5Area{
+  position       : relative; 
+  width          : 250px;              /* BOXの幅               */
+  height         : 40px;               /* BOXの高さ             */
+  letter-spacing : 0.1em;              /* 文字間隔              */
+  font-weight    : bold;               /* 太字                  */
+  line-height    : 0;                  /* 標準の行高さ          */
+}
 
-.production-input{
-  position: relative;
-  box-sizing: border-box;
-  padding: 20px 0;
+ /* === テキスト入力欄のSTYLE設定 ============================= */
+.sample5Text {
+  position       : absolute;
+  display        : block;              /* ブロック化            */
+  box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+  height         : 40px;               /* BOXの高さ             */
+  width          : 100%;               /* テキスト入力の幅      */
+  margin         : 0;                  /* 外余白                */
+  padding        : 0 45px 0 8px;       /* 内余白                */
+  border         : 2px solid #666;     /* 枠線　幅,実践,色      */
+  border-radius  : 6px;                /* 角丸                  */
+  color          : #333;               /* 文字色                */
+  font-size      : 18px;               /* フォントサイズ        */
+  outline        : 0;                  /* 入力の薄い枠を非表示  */
 }
-.production-input input[type="text"]{
-  border: none;
-  height: 1.8em;
+
+ /* === 検索ボタン欄のSTYLE設定 =============================== */
+.sample5Button {
+  position       : absolute;
+  box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+  height         : 28px;               /* 入力の高さ            */
+  margin         : 0;                  /* 外余白                */
+  padding        : 6px 10px;           /* 内余白                */
+  top            : 6px;                /* ボタン表示位置(上)    */
+  right          : 6px;                /* ボタン表示位置(右)    */
+  border         : none;               /* 枠線　幅,実践,色      */
+  border-radius  : 6px;                /* 右上下の角丸          */
+  background     : #666;               /* ボタンの色            */
+  color          : #fff;               /* 文字色                */
+  cursor         : pointer;            /* カーソル設定          */
+  transition     : .5s;
 }
-.production-input input[type="text"]:focus {
-  outline: 0;
+
+
+ /* === テキスト入力欄にフォーカスか来たとき ================== */
+.sample5Text:focus {
+  background     : #cfe7ff;            /* フォーカス時の背景色  */
 }
-.production-input{
-  border: 2px solid #3879D9;
-  padding: 3px 5px;
-  border-radius: 20px;
-  height: 2.2em;
-  width: 265px;
-  overflow: hidden;
+
+
+ /* === 検索ボタン欄にフォーカスか来たとき ==================== */
+.sample5Button:hover {
+  background     : #333;               /* フォーカス時の背景色  */
+  transform      : rotate(360deg);     /* 360度回転             */
+  background-color : #007fff;          /* フォーカス時の背景色  */
 }
-.production-input input[type="submit"]{
-  cursor: pointer;
-  font-family: FontAwesome;
-  border: none;
-  background: #3879D9;
-  color: #fff;
-  position: absolute;
-  width: 3.5em;
-  height: 3.0em;
-  right:0px;
-  top: -5px;
-  outline : none;
+
+ /* === 検索アイコンのSTYLE設定 =============================== */
+.sample5Img {
+  display        : inline-block;       /* インラインブロック化  */
+  width          : auto;               /* 幅は高さに合わせる    */
+  height         : 16px;               /* 画像の高さ            */
+  margin         : 0;                  /* 余白                  */
+  vertical-align : middle;             /* 横の文字位置          */
 }
-.search_container ::-webkit-input-placeholder {
-  color: #3879D9;
+
+ /* === IEの入力エリア右側×消し ============================== */
+.sample5Text::-ms-clear {
+  display        : none;               /* ×を消す              */
+}
+
+.hidden-btn {
+  display: none;
 }
 
 .results {
