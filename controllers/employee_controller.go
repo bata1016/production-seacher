@@ -4,6 +4,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/gin-contrib/sessions"
+
 	model "github.com/bata1016/production-seacher/models"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
@@ -21,6 +23,14 @@ func IndexEmployee(ctx *gin.Context) {
 
 // LoginEmployeeはLoginページを返却するアクション
 func LoginEmployee(ctx *gin.Context) {
+	ctx.HTML(http.StatusOK, "login.html", gin.H{})
+}
+
+func LogoutEmployee(ctx *gin.Context) {
+	session := sessions.Default(ctx)
+	session.Clear()
+	session.Save()
+	println("Session clear")
 	ctx.HTML(http.StatusOK, "login.html", gin.H{})
 }
 
@@ -49,8 +59,4 @@ func SessionCheckEmployee(ctx *gin.Context) {
 		log.Println("ログインできました")
 		ctx.Redirect(302, "/production/toppage")
 	}
-	// var model model.EmployeeModel
-	// employeeCode := ctx.PostForm("employeeCode")
-	// password := ctx.PostForm("password")
-
 }

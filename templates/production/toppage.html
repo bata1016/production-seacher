@@ -55,6 +55,13 @@
 
       <div class="results">
         検索結果一覧
+        <ul>
+          {{ range .productions}}
+          <li> 
+            品番：{{.ProductionCode}}、機種：{{.Category}}、幅：{{.Width}}、高さ：{{.Height}}、金額：{{.Price}}
+          </li>
+          {{ end }}
+        </ul>
       </div>
     </div>
   </div>

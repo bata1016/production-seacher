@@ -4,5 +4,10 @@ import "github.com/jinzhu/gorm"
 
 type Production struct {
 	gorm.Model
-	WorkTops []WorkTop
+	ProductionCode string
+	Category       string
+	Company        string
+	Width          int
+	Height         int
+	Price          int
 }
