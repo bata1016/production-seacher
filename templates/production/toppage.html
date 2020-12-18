@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/assets/css/reset.css">
-  <link rel="stylesheet" href="/assets/css/production/toppage.css?v=4">
+  <link rel="stylesheet" href="/assets/css/production/toppage.css?v=5">
   <link rel="stylesheet" href="/assets/css/shered/header.css?v=2">
   <link rel="stylesheet" href="/assets/css/shered/footer.css?v=2">
   <!-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
@@ -55,13 +55,24 @@
 
       <div class="results">
         検索結果一覧
-        <ul>
+        <table class="cost-table">
+          <tr>
+            <th>品番</th>
+            <th>機種</th>
+            <th>幅</th>
+            <th>高さ</th>
+            <th>金額</th>
+          </tr>
           {{ range .productions}}
-          <li> 
-            品番：{{.ProductionCode}}、機種：{{.Category}}、幅：{{.Width}}、高さ：{{.Height}}、金額：{{.Price}}
-          </li>
+          <tr>
+            <td>{{.ProductionCode}}</td>
+            <td>{{.Category}}</td>
+            <td>{{.Width}}</td>
+            <td>{{.Height}}</td>
+            <td>{{.Price}}</td>
+          </tr>
           {{ end }}
-        </ul>
+        </table>
       </div>
     </div>
   </div>

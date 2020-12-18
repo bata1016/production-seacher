@@ -25,6 +25,19 @@ func (p ProductionModel) GetAll() ([]Production, error) {
 
 func (p ProductionModel) CreateProductionModel(productionCode string, category string, company string, width int, height int, price int) {
 	db := db.GetGormConnect()
+	productionParams := &entity.Production{
+		ProductionCode: productionCode, Category: category, Company: company, Width: width, Height: height, Price: price,
+	}
+	err := productionParams.Validate()
+	if err != nil {
+		panic(err)
+	}
+	// validate := validator.New() //インスタンス生成
+	// errors := validate.Struct(productionParams)
+	// if errors != nil {
+	// 	panic(errors)
+	// }
+
 	db.Create(&Production{ProductionCode: productionCode, Category: category, Width: width, Height: height, Price: price})
 	defer db.Close()
 }

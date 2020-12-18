@@ -147,3 +147,8 @@ option:hover{
 .results {
   height: 70vh;
 }
+
+table, td, th{
+  border: 1px solid black;
+  width: auto;
+}
