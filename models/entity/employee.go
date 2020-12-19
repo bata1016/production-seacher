@@ -7,8 +7,8 @@ import (
 // Employee is a model
 type Employee struct {
 	gorm.Model
-	Name         string
-	EmployeeCode string
-	Email        string
-	Password     string
+	Name         string `validate:"required"`
+	EmployeeCode string `validate:"required"`
+	Email        string `validate:"required,email"`
+	Password     string `validate:"required"`
 }

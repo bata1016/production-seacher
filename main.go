@@ -13,6 +13,7 @@ func main() {
 	router.Static("/assets/", "./assets")
 	router.GET("/", controllers.IndexEmployee)
 	router.GET("/login", controllers.LoginEmployee)
+	// router.GET("/logout", controllers.LogoutEmployee)
 	router.POST("/newemployee", controllers.CreateEmployee)
 	router.POST("/login/sessionCheckEmployee", controllers.SessionCheckEmployee)
 
@@ -20,6 +21,7 @@ func main() {
 	{
 		production.GET("/toppage", controllers.ProductionIndex)
 		production.GET("/addcost", controllers.ProductionNew)
+		production.POST("/newProduction", controllers.ProductionCreate)
 	}
 	router.Run()
 }
