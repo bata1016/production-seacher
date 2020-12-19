@@ -59,17 +59,19 @@
           <tr>
             <th>品番</th>
             <th>機種</th>
-            <th>幅</th>
-            <th>高さ</th>
+            <th>企業</th>
+            <th>幅(mm)</th>
+            <th>高さ(mm)</th>
             <th>金額</th>
           </tr>
           {{ range .productions}}
           <tr>
             <td>{{.ProductionCode}}</td>
             <td>{{.Category}}</td>
-            <td>{{.Width}}</td>
-            <td>{{.Height}}</td>
-            <td>{{.Price}}</td>
+            <td>{{.Company}}</td>
+            <td>{{.Width}}mm</td>
+            <td>{{.Height}}mm</td>
+            <td>{{.Price}}円</td>
           </tr>
           {{ end }}
         </table>

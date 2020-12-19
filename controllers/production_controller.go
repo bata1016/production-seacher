@@ -3,7 +3,6 @@ package controllers
 import (
 	"fmt"
 	"net/http"
-	"strconv"
 
 	model "github.com/bata1016/production-seacher/models"
 	"github.com/gin-gonic/gin"
@@ -35,20 +34,14 @@ func ProductionCreate(ctx *gin.Context) {
 	category := ctx.PostForm("category")
 	company := ctx.PostForm("company")
 	width := ctx.PostForm("width")
-	widthInt, err := strconv.Atoi(width)
-	if err != nil {
-		fmt.Println(err)
-	}
 	height := ctx.PostForm("height")
-	heightInt, err := strconv.Atoi(height)
-	if err != nil {
-		fmt.Println(err)
-	}
 	price := ctx.PostForm("price")
-	priceInt, err := strconv.Atoi(price)
-	if err != nil {
-		fmt.Println(err)
+	errorMessages := model.CreateProductionModel(productionCode, category, company, width, height, price)
+	if errorMessages != nil {
+		ctx.HTML(http.StatusBadRequest, "addcost.html", gin.H{
+			"errorMessages": errorMessages,
+		})
+	} else {
+		ctx.Redirect(302, "/production/toppage")
 	}
-	model.CreateProductionModel(productionCode, category, company, widthInt, heightInt, priceInt)
-	ctx.Redirect(302, "/production/toppage")
 }

@@ -9,14 +9,17 @@
   <div class="wrapper">
     {{template "header"}}
     <div class="main">
+        {{if .errorMessages}}
+        {{.errorMessages}}
+        {{end}}
       <h1>原価を追加してください</h1>
       <a href="/production/toppage">トップページに戻る</a>
       <form action="/production/newProduction" method="POST">
         <input type="text" name="productionCode" placeholder="品番を入力してください">
         <input type="text" name="category" placeholder="カテゴリーを入力してください">
         <input type="text" name="company" placeholder="仕入れ企業名を入力してください">
-        <input type="number" name="width" placeholder="製品間口を入力してください">
-        <input type="number" name="height" placeholder="製品高さを入力してください">
+        <input type="number" name="width" placeholder="製品間口(mm)を入力してください">
+        <input type="number" name="height" placeholder="製品高さ(mm)を入力してください">
         <input type="number" name="price" placeholder="金額を入力してください">
         <input type="submit" value="送信">
       </form>
